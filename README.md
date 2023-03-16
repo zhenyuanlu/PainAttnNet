@@ -3,9 +3,13 @@
 
 ### Our new paper just released on arxiv, PainAttnNet: https://arxiv.org/abs/2303.06845 
 
-<br>
+<br/>
+
+
 
 ### Code will be coming soon.
+
+<br/>
 
 ## Abstract
 
@@ -20,12 +24,10 @@ Pain is a serious worldwide health problem that affects a vast proportion of the
 
 arxiv
 ```
-@misc{lu2023transformer,
-      title={Transformer Encoder with Multiscale Deep Learning for Pain Classification Using Physiological Signals}, 
-      author={Zhenyuan Lu, Burcu Ozek and Sagar Kamarthi},
-      year={2023},
-      eprint={2303.06845},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG}
+@article{lu2023transformer,
+  title={Transformer Encoder with Multiscale Deep Learning for Pain Classification Using Physiological Signals},
+  author={Lu, Zhenyuan and Ozek, Burcu and Kamarthi, Sagar},
+  journal={arXiv preprint arXiv:2303.06845},
+  year={2023}
 }
 ```
