@@ -12,7 +12,7 @@ selected_d = {"outs": [], "trg": []}
 
 class Trainer:
     def __init__(self, model, loss, optimizer, config, data_loader, fold_id,
-                 valid_data_loader=None, class_weights=None):
+                 valid_data_loader=None):
 
         # Basic configuration
         self.config = config
@@ -53,7 +53,6 @@ class Trainer:
         self.valid_metrics = MetricTracker('loss', *[m.__name__ for m in self.metric_ftns])
 
         self.curr_best = 0
-        self.class_weights = class_weights
 
     def _setup_monitoring(self):
         """
@@ -215,22 +214,6 @@ class Trainer:
                 trgs = np.append(trgs, target.data.cpu().numpy())
         return self.valid_metrics.result(), outs, trgs
 
-    # def _prepare_device(self, n_gpu_use):
-    #     """
-    #     Setup GPU device if available, move model into configured device
-    #     """
-    #     n_gpu = torch.cuda.device_count()
-    #     if n_gpu_use > 0 and n_gpu == 0:
-    #         self.logger.warning("Warning: No GPU available, training will be on CPU.")
-    #         n_gpu_use = 0
-    #     if n_gpu_use > n_gpu:
-    #         self.logger.warning(
-    #             "Warning: Only {} GPU are available, but {} are configured to use."
-    #             "on this machine.".format(n_gpu, n_gpu_use))
-    #         n_gpu_use = n_gpu
-    #     device = torch.device('cuda:0' if n_gpu_use > 0 else 'cpu')
-    #     list_ids = list(range(n_gpu_use))
-    #     return device, list_ids
 
     def _progress(self, batch_idx):
         base = '[{}/{} ({:.0f}%)]'

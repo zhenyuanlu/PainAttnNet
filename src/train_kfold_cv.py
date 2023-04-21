@@ -56,18 +56,15 @@ def train_kfold(config, fold_id):
     optimizer = torch.optim.Adam(trainable_params)
 
     data_loader, valid_data_loader, data_count = load_data(folds_data[fold_id][0], folds_data[fold_id][1], label_converter, batch_size)
-    weights_for_each_class = calc_class_weight(data_count)
-    weights_for_each_class = [0.75, 1]
 
-    device = torch.device('cuda:0' if config['n_gpu'] > 0 else 'cpu')
-    loss = nn.CrossEntropyLoss(weight=torch.tensor(weights_for_each_class).to(device))
+    # May set different weights for different classes here
+    loss = nn.CrossEntropyLoss()
 
     trainer = Trainer(model, loss, optimizer,
                       config=config,
                       data_loader=data_loader,
                       fold_id=fold_id,
-                      valid_data_loader=valid_data_loader,
-                      class_weights=weights_for_each_class)
+                      valid_data_loader=valid_data_loader)
     trainer.train()
 
 
