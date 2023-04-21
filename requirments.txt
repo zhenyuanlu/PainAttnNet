@@ -1,0 +1,13 @@
+name: PAN
+channels:
+  - defaults
+dependencies:
+  - torchaudio
+  - pytorch-cuda
+  - pytorch
+  - torchvision
+  - scikit-learn
+  - pandas
+  - matplotlib
+  - openpyxl
+prefix: D:\CreativeCenter\anaconda3\envs\PAN

@@ -1,0 +1,40 @@
+{
+    "name": "LOSO_0_vs_1",
+    "n_gpu": 1,
+    "arch": {
+        "type": "PainAttnNet",
+        "args": {
+        }
+    },
+    "data_loader": {
+        "args":{
+            "batch_size": 128,
+            "num_folds": 87
+        }
+    },
+    "optimizer": {
+        "type": "Adam",
+        "args":{
+            "lr": 0.001,
+            "weight_decay": 0.001,
+            "amsgrad": true
+        }
+    },
+    "metrics": [
+        "accuracy"
+    ],
+    "trainer": {
+        "epochs": 100,
+        "save_dir": "f:/saved/",
+        "save_period": 30,
+        "verbosity": 2,
+        "monitor": "min val_loss"
+    },
+    "label_converter": {
+        "0": 0,
+        "1": -1,
+        "2": -1,
+        "3": -1,
+        "4": 1
+    }
+}

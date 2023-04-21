@@ -3,26 +3,112 @@
 
 ### Our new paper just released on arxiv, PainAttnNet: https://arxiv.org/abs/2303.06845 
 
-<br/>
 
-
-
-### Code will be coming soon.
-
-<br/>
 
 ## Abstract
 
-<p align="center">
-  <img src="figures/outline_simple_2.svg" width="100%"/>
-</p>
 
-Pain is a serious worldwide health problem that affects a vast proportion of the population. For efficient pain management and treatment, accurate classification and evaluation of pain severity are necessary. However, this can be challenging as pain is a subjective sensation-driven experience. Traditional techniques for measuring pain intensity, e.g. self-report scales, are susceptible to bias and unreliable in some instances. Consequently, there is a need for more objective and automatic pain intensity assessment strategies. In this research, we develop PainAttnNet (PAN), a novel transformer-encoder deep-learning framework for classifying pain intensities with physiological signals as input. The proposed approach is comprised of three feature extraction architectures: multiscale convolutional networks (MSCN), a squeeze-and-excitation residual network (SEResNet), and a transformer encoder block. On the basis of pain stimuli, MSCN extracts short- and long-window information as well as sequential features. SEResNet highlights relevant extracted features by mapping the interdependencies among features. The third architecture employs a transformer encoder consisting of three temporal convolutional networks (TCN) with three multi-head attention (MHA) layers to extract temporal dependencies from the features. Using the publicly available BioVid pain dataset, we test the proposed PainAttnNet model and demonstrate that our outcomes outperform state-of-the-art models. These results confirm that our approach can be utilized for automated classification of pain intensity using physiological signals to improve pain management and treatment.
+<div style="text-align:center">
+  <img src="figures/outline_simple_2.svg" width="100%" alt="PainAttnNet"/>
+</div>
+
+Pain is a global health problem impacting a significant proportion of the population. Accurate assessments are crucial for effective pain management and treatment. Current methods, \eg self-report scales, can be biased and inconsistent. Therefore, there is a need for objective and automatic pain intensity evaluation. In this paper, we propose PainAttnNet, a novel transformer-encoder deep learning framework for classifying pain intensities using physiological signals. PainAttnNet integrates multiscale convolutional networks to capture short- and long-window sequential features, a squeeze-and-excitation residual network emphasizing interdependencies among relevant features, and a transformer encoder block for optimal feature extraction and temporal dependency analysis. Utilizing the publicly available BioVid heat pain database, PainAttnNet outperforms state-of-the-art models, demonstrating its potential for automated pain intensity classification. Our results suggest that PainAttnNet can enhance pain assessment using physiological signals benefitting further pain management and treatment.
 
 
-## Citation
+## Directory Structure
+```python
+PainAttnNet
+|   environment.yml # Requirements for conda environment
+|   LICENSE
+|   README.md
+|   requirments.txt # Requirements for pip environment
+|          
++---jq
+|       jq-win64.exe
+|       
+\---src
+    |   batch_train.sh # Training script
+    |   config.json # Training configurations
+    |   logger_config.json # Logger configurations
+    |   parser.py # Parser for training configurations
+    |   train_kfold_cv.py # Main training script
+    |  __init__.py
+    |   
+    +---models
+    |   |   main_painAttnNet.py # Main model wrapper
+    |   |   module_mscn.py* # Multiscale convolutional network
+    |   |   module_se_resnet.py # Squeeze-and-excitation residual network
+    |   |   module_transformer_encoder.py # Transformer encoder block
+    |   \   __init__.py
+    |           
+    +---tests # Unit tests
+    |   |   test_generate_kfolds_index.py
+    |   |   test_mscn.py
+    |   |   test_PainAttnNet_output.py
+    |   |   test_process_bioVid.py
+    |   |   test_se_resnet.py
+    |   |   test_transformer_encoder.py
+    |   \   __init__.py
+    |           
+    +---trainers # Training modules
+    |   |   checkpoint_handler.py # Checkpoint handler
+    |   |   device_prep.py # Device preparation, CPU or GPU
+    |   |   main_trainer.py # Main trainer scripts
+    |   |   metrics_manager.py # Metrics manager and other metrics functions
+    |   \   __init__.py
+    |           
+    \---utils
+        |   process_bioVid.py # Data processing for BioVid
+        |   utils.py # Other utility functions
+        \   __init__.py
 
-arxiv
+```  
+## Updates
+
+`update 4/21/2023`  Full code is released.
+
+`update 4/20/2023`  The strutrue of MSCN currently in the code has three convolutional layers for three scales, but this can be easily changed by modifying the code. We will also update the paper later on.
+
+
+## Get Started
+
+```
+torchaudio==0.13.0
+python==3.10.8
+pytorch-cuda==11.7
+pytorch==1.13.0
+torchvision==0.14.0
+scikit-learn==1.0.1
+pandas
+matplotlib
+openpyxl
+```
+For Linux users, install `jq` package via conda or pip.
+
+For Windows users, install `jq` package from [here](https://stedolan.github.io/jq/download/), and put the `jq.exe` file in the local directory.
+
+
+## Training
+
+
+### Training k-fold cross validation with script
+```
+sh batch_train.sh
+```
+### Training individual fold in terminal
+```
+python train_kfold_cv.py --fold_i {fold index}
+```
+
+You can change settings at `main_painAttnNet.py` for tuning model structure, `config.py` for training configurations and `train_kfold_cv.py` for others.
+
+
+## Dataset
+The dataset is available at [BioVid Heat Pain Database](https://www.nit.ovgu.de/BioVid.html).
+
+## Reference
+
+If you find our study useful, please cite our paper on arxiv
 ```
 @article{lu2023transformer,
   title={Transformer Encoder with Multiscale Deep Learning for Pain Classification Using Physiological Signals},
@@ -31,3 +117,8 @@ arxiv
   year={2023}
 }
 ```
+
+## Contact
+Zhenyuan Lu\
+Northeastern University, Boston\
+Email: lu.zhenyua[at]northeastern[dot]edu
