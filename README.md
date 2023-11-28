@@ -9,7 +9,7 @@
 
 
 <div style="text-align:center">
-  <img src="figures/outline_simple_2.svg" width="100%" alt="PainAttnNet"/>
+  <img src="figures/outline_simple_2.png" width="100%" alt="PainAttnNet"/>
 </div>
 
 Pain is a global health problem impacting a significant proportion of the population. Accurate assessments are crucial for effective pain management and treatment. Current methods, \eg self-report scales, can be biased and inconsistent. Therefore, there is a need for objective and automatic pain intensity evaluation. In this paper, we propose PainAttnNet, a novel transformer-encoder deep learning framework for classifying pain intensities using physiological signals. PainAttnNet integrates multiscale convolutional networks to capture short- and long-window sequential features, a squeeze-and-excitation residual network emphasizing interdependencies among relevant features, and a transformer encoder block for optimal feature extraction and temporal dependency analysis. Utilizing the publicly available BioVid heat pain database, PainAttnNet outperforms state-of-the-art models, demonstrating its potential for automated pain intensity classification. Our results suggest that PainAttnNet can enhance pain assessment using physiological signals benefitting further pain management and treatment.
