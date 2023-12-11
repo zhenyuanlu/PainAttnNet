@@ -1,7 +1,7 @@
 ## Transformer Encoder with Multiscale Deep Learning for Pain Classification Using Physiological Signals
 
 
-### Our new paper just released on arxiv, PainAttnNet: https://arxiv.org/abs/2303.06845 
+### Our new paper just released on Frontiers in Physiology: https://www.frontiersin.org/articles/10.3389/fphys.2023.1294577/full
 
 
 
@@ -65,9 +65,11 @@ PainAttnNet
 ```  
 ## Updates
 
+`update 12/11/2023` Paper published on Frontiers in Physiology.
+
 `update 4/21/2023`  Full code is released.
 
-`update 4/20/2023`  The strutrue of MSCN currently in the code has three convolutional layers for three scales, but this can be easily changed by modifying the code. We will also update the paper later on.
+`update 4/20/2023`  The strutrue of MSCN currently in the code has three convolutional layers for three scales, but this can be easily changed by modifying the code.
 
 
 ## Get Started
