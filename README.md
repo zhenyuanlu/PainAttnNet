@@ -110,13 +110,17 @@ The dataset is available at [BioVid Heat Pain Database](https://www.nit.ovgu.de/
 
 ## Reference
 
-If you find our study useful, please cite our paper on arxiv
+If you find our study useful, please cite our paper on Frontiers
 ```
-@article{lu2023transformer,
-  title={Transformer Encoder with Multiscale Deep Learning for Pain Classification Using Physiological Signals},
-  author={Lu, Zhenyuan and Ozek, Burcu and Kamarthi, Sagar},
-  journal={arXiv preprint arXiv:2303.06845},
-  year={2023}
+@article{10.3389/fphys.2023.1294577,
+AUTHOR={Lu, Zhenyuan and Ozek, Burcu and Kamarthi, Sagar},   
+TITLE={Transformer encoder with multiscale deep learning for pain classification using physiological signals},      
+JOURNAL={Frontiers in Physiology},      
+VOLUME={14},           
+YEAR={2023},      
+URL={https://www.frontiersin.org/articles/10.3389/fphys.2023.1294577},       
+DOI={10.3389/fphys.2023.1294577},      
+ISSN={1664-042X},
 }
 ```
 
